@@ -1,17 +1,19 @@
-let date=function printDate()
+let printDate=function ()
 {
-    console.log('06/04/2022')
+    
+    console.log('current date:',new Date().getDate())
 }
 
-let month=function printMonth()
+let  printMonth=function ()
 {
-    console.log('April')
+    //let date=new Date()
+    console.log('current month:',new Date().getMonth()+1)
 }
 
-let info=function getBatchInfo()
+let getBatchInfo=function ()
 {
     console.log('Uranium, W2D3, The topic for today is Node.js module system')
 }
-module.exports.date=date
-module.exports.month=month
-module.exports.info=info
+module.exports.getDate=printDate
+module.exports.month= printMonth
+module.exports.info=getBatchInfo

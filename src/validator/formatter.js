@@ -1,21 +1,21 @@
-let trim=function trim()
+let trim=function()
 {
-    let str='   FunctionUp   '
-    str.trim()
+    let str='   FunctionUp'
+    
     console.log(str.trim())
 }
 
-let lower=function changeToLowerCase()
+let changeToLowerCase=function ()
 {
     let str='FUNCTION UP'
     console.log(str.toLowerCase())
 }
-let upper=function changeToUpperCase()
+let changeToUpperCase=function ()
 {
     let str='function up'
     console.log(str.toUpperCase())
 }
 
 module.exports.trim=trim
-module.exports.lower=lower
-module.exports.upper=upper
+module.exports.lower=changeToLowerCase
+module.exports.upper=changeToUpperCase
