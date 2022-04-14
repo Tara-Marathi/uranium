@@ -4,7 +4,6 @@ const authorSchema = new mongoose.Schema( {
     authorName: String, 
     author_id:{
         type:Number,
-        required:true,
         unique:true
     },
     age: Number,
