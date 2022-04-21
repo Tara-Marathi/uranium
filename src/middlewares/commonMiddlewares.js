@@ -1,12 +1,19 @@
 
 
-const mid4= function ( req, res, next) {
-    console.log("Hi I am a middleware named Mid4")
-    //counter
+const mid= function ( req, res, next) {
+  let header =  req.headers
+  //console.log(header)
+  let appType=header["isFreeAppUser"]
+  if(!appType)
+  {
+     appType=header["isfreeappuser"]
+  }
+  if(!appType)
+      return res.send("header is mandatory")
+  
+  else
+  //req.body.isFreeAppUser=header
     next()
 }
 
-module.exports.mid1= mid1
-module.exports.mid2= mid2
-module.exports.mid3= mid3
-module.exports.mid4= mid4
+module.exports.mid= mid
