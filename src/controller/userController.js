@@ -15,7 +15,7 @@ const createUser = async function (req, res) {
 
         // DATA COMING VALIDATIONS
         if (!validator.isValid(title) || !validator.isValidTitle(title)) {
-            return res.status(400).send({ status: false, message: "Enter Title First ,As well as Any One of 'Mr , Mrs , Miss'" });
+            return res.status(400).send({ status: false, message: "Enter Title First ,As well as any One of 'Mr , Mrs , Miss'" });
         }
         
         if (!validator.isValid(name)) {
@@ -33,7 +33,7 @@ const createUser = async function (req, res) {
        
         // PASSWORD VALIDATIONS
         if (!validator.isValid(password) || !(password.length >= 8 && password.length <= 15)) {
-            return res.status(400).send({ status: false, message: "Enter Password First, Also Should be 8 to 15 Digits" });
+            return res.status(400).send({ status: false, message: "Enter Password First, Also it Should be 8 to 15 Digits" });
         }
         
         // ADDRESS VALIDATIONS 
@@ -92,7 +92,7 @@ const loginUser = async function (req, res) {
         //  DB VALIDATIONS 
         const existUser = await userModel.findOne(requestBody)
         if (!existUser) {
-            return res.status(401).send({ status: false, message: "Unautherise Register first" });
+            return res.status(401).send({ status: false, message: "Email or Password is incorrect" });
         }
         //  TOKEN CREATION
         const token = jwt.sign({
@@ -103,10 +103,10 @@ const loginUser = async function (req, res) {
         }, "indiaisgreate");
         //TOKEN SENDING
         res.setHeader("x-api-key", token)
-        res.status(200).send({ status: true, message: "Logined successfully", Token: token })
+        return res.status(200).send({ status: true, message: "Logined successfully", Token: token })
     }
     catch (err) {
-        res.status(500).send({ status: false, message: err.message })
+        return res.status(500).send({ status: false, message: err.message })
     }
 }
 
